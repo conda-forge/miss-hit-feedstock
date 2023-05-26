@@ -1,5 +1,5 @@
 {% set name = "miss-hit" %}
-{% set version = "0.9.39" %}
+{% set version = "0.9.40" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/miss_hit-{{ version }}.tar.gz
-  sha256: 92be5478413714e89c1b6b96945867e220c1294c0ed52e9008421f48faa97f33
+  sha256: bad7c14a184e6c74eab8b77e510bcd2216da4e3448c4fd916f4ffd119b70b418
 
 build:
   entry_points:
