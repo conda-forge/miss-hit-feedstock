@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/miss_hit-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/miss_hit-{{ version }}.tar.gz
   sha256: c0705b07bc4bdb54f803889c721058871cadfe20c7dc650867818b2d45e7a4ae
 
 build:
@@ -17,15 +17,15 @@ build:
     - mh_trace = miss_hit.mh_trace:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.6,<4.0
+    - python {{ python_min }}
     - miss-hit-core
     - pip
   run:
-    - python >=3.6,<4.0
+    - python >={{ python_min }},<4.0
     - miss-hit-core {{ version }}
 
 test:
@@ -39,6 +39,7 @@ test:
     - mh_trace --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://misshit.org
